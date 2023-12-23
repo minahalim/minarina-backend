@@ -31,9 +31,6 @@ return function (ContainerBuilder $containerBuilder) {
                     'username' => 'u359007260_minarina',
                     'database' => 'u359007260_minarina',
                     'password' => 'Mino!7alim',
-                    // 'username' => 'root',
-                    // 'database' => 'thehomespa',
-                    // 'password' => '',
                     'charset' => 'utf8mb4',
                     'collation' => 'utf8mb4_unicode_ci',
                     'flags' => [
