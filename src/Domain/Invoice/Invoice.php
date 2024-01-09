@@ -12,6 +12,8 @@ class Invoice
 
     public string $address;
 
+    public string $email;
+
     public string $invoiceDate;
 
     public string $createdAt;

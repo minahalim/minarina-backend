@@ -13,6 +13,7 @@ use App\Application\Actions\Invoice\InvoiceItemDeleteAction;
 use App\Application\Actions\Invoice\InvoiceItemUpdateAction;
 use App\Application\Actions\Invoice\InvoicesAction;
 use App\Application\Actions\Invoice\InvoiceUpdateAction;
+use App\Application\Actions\Invoice\SendEmailAction;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\App;
@@ -44,6 +45,7 @@ return function (App $app) {
         $group->post('/item-create', InvoiceItemCreateAction::class);
         $group->post('/item-update', InvoiceItemUpdateAction::class);
         $group->post('/item-delete', InvoiceItemDeleteAction::class);
+        $group->post('/email', SendEmailAction::class);
     });
 
     $app->get('/db-test', function (Request $request, Response $response) {
