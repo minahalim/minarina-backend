@@ -20,7 +20,7 @@ if (false) { // Should be set to true in production
 }
 
 // Set up settings
-$settings = require __DIR__ . '/../app/settings.dev.php';
+$settings = require __DIR__ . '/../app/settings.php';
 $settings($containerBuilder);
 
 // Set up dependencies
