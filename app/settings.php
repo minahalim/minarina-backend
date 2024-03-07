@@ -1,5 +1,6 @@
 <?php
-declare (strict_types = 1);
+
+declare(strict_types=1);
 
 // Timezone
 date_default_timezone_set('America/Toronto');
@@ -11,41 +12,41 @@ use Monolog\Logger;
 
 return function (ContainerBuilder $containerBuilder) {
 
-    // Global Settings Object
-    $containerBuilder->addDefinitions([
-        SettingsInterface::class => function () {
-            return new Settings([
-                'mode' => 'development',
-                'debug' => true,
-                'displayErrorDetails' => true, // Should be set to false in production
-                'logError' => false,
-                'logErrorDetails' => false,
-                'logger' => [
-                    'name' => 'slim-app',
-                    'path' => isset($_ENV['docker']) ? 'php://stdout' : __DIR__ . '/../logs/app.log',
-                    'level' => Logger::DEBUG,
-                ],
-                'upload_path' => '../api.minarina.com/uploads/',
-                'db' => [
-                    'driver' => 'mysql',
-                    'host' => 'localhost',
-                    'username' => 'u359007260_minarina',
-                    'database' => 'u359007260_minarina',
-                    'password' => 'Mino!7alim',
-                    'charset' => 'utf8mb4',
-                    'collation' => 'utf8mb4_unicode_ci',
-                    'flags' => [
-                        // Turn off persistent connections
-                        PDO::ATTR_PERSISTENT => false,
-                        // Enable exceptions
-                        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                        // Emulate prepared statements
-                        PDO::ATTR_EMULATE_PREPARES => true,
-                        // Set default fetch mode to array
-                        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                    ],
-                ],
-            ]);
-        },
-    ]);
+  // Global Settings Object
+  $containerBuilder->addDefinitions([
+    SettingsInterface::class => function () {
+      return new Settings([
+        'mode' => 'development',
+        'debug' => true,
+        'displayErrorDetails' => true, // Should be set to false in production
+        'logError' => false,
+        'logErrorDetails' => false,
+        'logger' => [
+          'name' => 'slim-app',
+          'path' => isset($_ENV['docker']) ? 'php://stdout' : __DIR__ . '/../logs/app.log',
+          'level' => Logger::DEBUG,
+        ],
+        'upload_path' => '../api/uploads/',
+        'db' => [
+          'driver' => 'mysql',
+          'host' => 'localhost',
+          'username' => 'u359007260_minarina',
+          'database' => 'u359007260_minarina',
+          'password' => 'Mino!7alim',
+          'charset' => 'utf8mb4',
+          'collation' => 'utf8mb4_unicode_ci',
+          'flags' => [
+            // Turn off persistent connections
+            PDO::ATTR_PERSISTENT => false,
+            // Enable exceptions
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            // Emulate prepared statements
+            PDO::ATTR_EMULATE_PREPARES => true,
+            // Set default fetch mode to array
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+          ],
+        ],
+      ]);
+    },
+  ]);
 };
